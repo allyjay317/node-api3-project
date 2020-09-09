@@ -1,9 +1,11 @@
 const express = require('express');
 const db = require('./userDb')
 const postdb = require('../posts/postDb')
+const postRouter = require('../posts/postRouter')
 
 const router = express.Router();
 router.use('/:id', validateUserId)
+router.use('/:id/posts/', postRouter)
 
 
 //good
@@ -43,13 +45,7 @@ router.get('/:id', (req, res) => {
 //good
 router.get('/:id/posts', (req, res) => {
   // do your magic!
-  db.getUserPosts(req.user.id)
-    .then(result => {
-      res.status(200).json(result)
-    })
-    .catch(err => {
-      res.status(500).json({ errorMessage: 'Sorry Something went wrong' })
-    })
+
 });
 
 
