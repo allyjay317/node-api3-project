@@ -5,4 +5,4 @@ const userRouter = require('./users/userRouter')
 
 server.use('/api/user', userRouter)
 
-server.listen(5000)
+server.listen(process.env.PORT)
