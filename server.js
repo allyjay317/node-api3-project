@@ -1,5 +1,7 @@
 const express = require('express');
 const server = express();
+const cors = require('cors')
+server.use(cors())
 server.use(logger)
 server.use(express.json())
 
